@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <!-- Popper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <title>Bulb On Off Project</title>
+    <style>
+        .bulb-container {
+            margin: 25px;
+            padding: 25px;
+            /* border: 1px solid red; */
+        }
+    </style>
+</head>
+
+<body class="bg-light">
+    <div class="container">
+        <div class="row m-5">
+            <div class="col-md-6 offset-md-3">
+                <div class="card text-center">
+                    <div class="card-header">
+                        <h1>Here is my Blub control</h1>
+                    </div>
+                    <div class="card-body">
+                        <div class="bulb-container">
+                            <img class="img-fluid" id="bulb" src="img/bulbOFF.jpg" alt="">
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <div class="container">
+                            <button class="btn btn-success" onclick="turnOn()">Turn On</button>
+                            <button  class="btn btn-danger"  onclick="turnOff()">Turn Of</button>
+                          
+                        </div>
+                       
+                    </div>
+                </div>
+
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+
+
+
+
+    <script>
+        //turn on 
+        const turnOn = () => {
+            //bulb on
+            let imgOb = document.getElementById("bulb");
+          if(imgOb.getAttribute('src') == 'img/bulbON.jpg')
+          {
+            swal("Hey,Bulb ON hai bhai !!","Switch thord dega kya 🤷‍♂️🤷‍♂️? ","error"); 
+          }else
+          {
+            imgOb.setAttribute('src','img/bulbON.jpg');  
+          }
+          
+        };
+        const turnOff = () => {
+            let imgOb = document.getElementById("bulb");
+           if(imgOb.getAttribute('src') == 'img/bulbOFF.jpg')
+           {
+            swal("Hey,Bulb OFF hai bhai !!","Switch thord dega kya 🤷‍♂️🤷‍♂️? ","error");
+           }
+           else
+           {
+              imgOb.setAttribute('src','img/bulbOFF.jpg') ;
+           }
+            
+        };
+        //toggle
+
+        // const toggleBulb = () => {
+        //     let imgOb = document.getElementById("bulb");
+        //     let srcValue = imgOb.getAttribute("src");
+        //     // console.log(srcValue);
+
+        //     let buttonOb = document.getElementById("OnOff");
+        //     let buttonText = buttonOb.innerHTML;
+        //     // console.log(buttonText);
+
+
+        //     if (srcValue == 'img/bulbOFF.jpg') {
+        //         turnOn();
+        //         buttonOb.innerHTML = "Off";
+        //     } else {
+
+        //         turnOff();
+        //     }
+        // };
+    </script>
+
+
+
+
+</body>
+
+</html>

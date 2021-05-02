@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+  <!-- jQuery library -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+  <!-- Popper JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+  <!-- Latest compiled JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <title>Hello, world!</title>
+</head>
+
+<body class="bg-info text-white">
+
+  <div class="col-md-6 offset-md-3 card-header bg-primary">
+    <h1 class="p-0 text-center">CALCULATOR</h1>
+
+  </div>
+  </div>
+  <div class="card-body col-md-6 offset-md-3 card-header bg-secondary">
+    <label>First Number :</label>
+
+    <div class="form-group">
+
+      <input type="number" class="form-control" id="num1" placeholder="Enter Number">
+    </div>
+    <label>Second Number :</label>
+
+    <div class="form-group">
+
+      <input type="number" class="form-control" id="num2" onchange="checkForZero()" placeholder="Enter Number">
+      <span id="zeroCase"></span>
+    </div>
+    <label>Result:</label>
+
+    <div class="form-group">
+
+      <input type="text" class="form-control" id="result" placeholder="Result will be here">
+    </div>
+
+  </div>
+
+  <div class="card-footer col-md-6 offset-md-3  bg-secondary">
+
+    <button type="button" onclick="add()" id="btnAdd" class="btn btn-dark my-2">Add</button>
+    <button type="button" onclick="sub()" id="btnSub" class="btn btn-dark">Substraction</button>
+    <button type="button" onclick="mul()" id="btnMul" class="btn btn-dark">Multiply</button>
+    <button type="button" onclick="div()" id="btnDiv" class="btn btn-dark">Divide</button>
+    <button type="button" onclick="clearFields()" id="btnclr" class="btn btn-dark">Clear</button>
+
+
+
+
+  </div>
+  </div>
+</body>
+<script>
+  // swal("Hi", "Welcome to Calcultor ❤", "success");
+  // swal("Hello", "Welcome to Calcultor ❤", "info");
+  // swal("Bye", "Welcome to Calcultor ❤", "warning");
+
+  function add() {
+
+    let a = document.getElementById("num1").value;
+
+    let b = document.getElementById("num2").value;
+
+
+    if (a == '' || b == '') {
+      swal("Hey", "Blanks are not allowed", "info");
+      document.getElementById("result").value = 'Blanks are not allowed';
+      
+
+
+    } else {
+      let x = parseInt(a);
+      let y = parseInt(b);
+      let res = x + y;
+      document.getElementById("result").value = res;
+    }
+
+
+
+
+
+  }
+
+  function sub() {
+
+    let a = document.getElementById("num1").value;
+
+    let b = document.getElementById("num2").value;
+
+
+    if (a == '' || b == '') {
+      document.getElementById("result").value = 'Blanks are not allowed';
+
+
+    } else {
+      let x = parseInt(a);
+      let y = parseInt(b);
+      let res = x - y;
+      document.getElementById("result").value = res;
+    }
+
+
+
+
+
+
+  }
+
+  function mul() {
+
+    let a = document.getElementById("num1").value;
+
+    let b = document.getElementById("num2").value;
+
+
+    if (a == '' || b == '') {
+      document.getElementById("result").value = 'Blanks are not allowed';
+
+
+    } else {
+      let x = parseInt(a);
+      let y = parseInt(b);
+      let res = x * y;
+      document.getElementById("result").value = res;
+    }
+
+
+
+
+
+
+  }
+
+  function div() {
+
+    let a = document.getElementById("num1").value;
+
+    let b = document.getElementById("num2").value;
+
+
+
+    if (a == '' || b == '') {
+      document.getElementById("result").value = 'Blanks are not allowed';
+
+
+    } else {
+
+      let x = parseInt(a);
+      let y = parseInt(b);
+
+      if (y == 0) {
+        document.getElementById("result").value = "Sorry, denominator cannot be zero !!";
+        swal("Bhai","Zero se divide nhi hota hai 😢","warning");
+      } else {
+        let res = x / y;
+        document.getElementById("result").value = res;
+      }
+
+    }
+
+
+
+
+
+
+  }
+
+
+  function clearFields() {
+    console.log("Clearing fields...");
+    document.getElementById("num1").value = "";
+    document.getElementById("num2").value = "";
+    document.getElementById("result").value = "";
+  }
+
+  function checkForZero() {
+    let b = document.getElementById("num2").value;
+    if (b == 0) {
+      document.getElementById("zeroCase").innerHTML = "<i>Cannot be zero</li>";
+    }
+
+
+  }
+</script>
+
+</html>
